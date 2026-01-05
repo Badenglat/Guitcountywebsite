@@ -1,0 +1,122 @@
+/* ===================================
+   DARK MODE - VISUAL POLISH & OVERRIDES
+   Version: 1.0
+   Ensures maximum premium feel in dark mode
+   =================================== */
+
+/* Root overrides for dark mode colors */
+body.dark-mode {
+    --bg-primary: #0a0e27;
+    --bg-secondary: #12183d;
+    --bg-elevated: #1a224f;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+    --border-color: rgba(245, 197, 24, 0.15);
+    --primary-color: #0061f2;
+    --secondary-color: #fbbf24;
+}
+
+/* 1. COMPLETELY REMOVE BLUR IN DARK MODE (As requested) */
+body.dark-mode .header,
+body.dark-mode .hero-content,
+body.dark-mode .hero-buttons .btn-outline,
+body.dark-mode .slideshow-indicators,
+body.dark-mode .hero-prev,
+body.dark-mode .hero-next,
+body.dark-mode .control-btn,
+body.dark-mode .search-overlay,
+body.dark-mode .chatbot-window,
+body.dark-mode .notification-dropdown {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* 2. PREMIUM BACKGROUNDS FOR DARK MODE (To compensate for no blur) */
+body.dark-mode .header.scrolled {
+    background: rgba(10, 14, 39, 0.98);
+}
+
+body.dark-mode .search-overlay {
+    background: rgba(10, 14, 39, 0.99);
+}
+
+body.dark-mode .notification-dropdown,
+body.dark-mode .chatbot-window {
+    background: var(--bg-elevated);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border-color);
+}
+
+body.dark-mode .slideshow-indicators {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* 3. HERO CONTENT ALIGNMENT & VISIBILITY */
+body.dark-mode .hero-title {
+    color: #ffffff !important;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8) !important;
+}
+
+body.dark-mode .hero-tagline {
+    color: var(--secondary-color) !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 4. CARD & SECTION POLISH */
+body.dark-mode .feature-card,
+body.dark-mode .news-card,
+body.dark-mode .politician-card,
+body.dark-mode .stat-card {
+    background: var(--bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .feature-card:hover,
+body.dark-mode .news-card:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+/* 5. TEXT SELECTION & SCROLLBAR */
+body.dark-mode ::selection {
+    background: var(--secondary-color);
+    color: #0a0e27;
+}
+
+body.dark-mode ::-webkit-scrollbar-track {
+    background: #0a0e27;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: var(--bg-elevated);
+    border: 3px solid #0a0e27;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* 6. CORRECTION FOR MODALS */
+body.dark-mode .admin-modal-content {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+}
+
+body.dark-mode .admin-modal-header {
+    border-bottom-color: var(--border-color);
+}
+
+/* Fix for search suggestions visibility in dark mode */
+body.dark-mode .suggestion-tags .tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .suggestion-tags .tag:hover {
+    background: var(--secondary-color);
+    color: #0a0e27;
+    border-color: var(--secondary-color);
+}

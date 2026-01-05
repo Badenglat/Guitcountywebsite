@@ -1,0 +1,2615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guit County Admin Dashboard - Manage website content">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Dashboard - Guit County</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/images/guit-logo.jpg">
+    <link rel="apple-touch-icon" href="assets/images/guit-logo.jpg">
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-text">Loading Dashboard...</div>
+        </div>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="admin-wrapper" id="adminWrapper" style="display: none;">
+        <!-- ==================== SIDEBAR ==================== -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="admin-sidebar-header">
+                <div class="admin-logo">
+                    <img src="assets/images/guit-logo.jpg" alt="Guit County Logo">
+                    <div class="admin-logo-text">
+                        <h2>Guit Admin</h2>
+                        <span>Content Management</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="admin-nav">
+                <!-- Main Section -->
+                <div class="admin-nav-section">
+                    <div class="admin-nav-section-title">Main</div>
+                    <a href="#" class="admin-nav-link" data-section="dashboard">
+                        <i class="fas fa-th-large"></i>
+                        <span class="admin-nav-link-text">Dashboard</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="slideshow">
+                        <i class="fas fa-images"></i>
+                        <span class="admin-nav-link-text">Hero Slideshow</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="services">
+                        <i class="fas fa-concierge-bell"></i>
+                        <span class="admin-nav-link-text">Services</span>
+                    </a>
+                </div>
+
+                <!-- Content Section -->
+                <div class="admin-nav-section">
+                    <div class="admin-nav-section-title">Content</div>
+                    <a href="#" class="admin-nav-link" data-section="news">
+                        <i class="fas fa-newspaper"></i>
+                        <span class="admin-nav-link-text">News Management</span>
+                        <span class="admin-nav-badge" id="newsBadge">0</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="education">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span class="admin-nav-link-text">Education</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="history">
+                        <i class="fas fa-landmark"></i>
+                        <span class="admin-nav-link-text">History</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="healthcare">
+                        <i class="fas fa-heartbeat"></i>
+                        <span class="admin-nav-link-text">Healthcare</span>
+                    </a>
+                </div>
+
+                <!-- Leadership Section -->
+                <div class="admin-nav-section">
+                    <div class="admin-nav-section-title">Leadership</div>
+                    <a href="#" class="admin-nav-link" data-section="politicians">
+                        <i class="fas fa-user-tie"></i>
+                        <span class="admin-nav-link-text">Politicians</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="military">
+                        <i class="fas fa-shield-alt"></i>
+                        <span class="admin-nav-link-text">Military</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="commissioner">
+                        <i class="fas fa-user-tie"></i>
+                        <span class="admin-nav-link-text">County Commissioner</span>
+                    </a>
+                </div>
+
+                <!-- Administrative Section -->
+                <div class="admin-nav-section">
+                    <div class="admin-nav-section-title">Administrative</div>
+                    <a href="#" class="admin-nav-link" data-section="payams">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span class="admin-nav-link-text">Payams</span>
+                        <span class="admin-nav-badge" id="payamsBadge">0</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="bomas">
+                        <i class="fas fa-building"></i>
+                        <span class="admin-nav-link-text">Bomas</span>
+                    </a>
+                </div>
+
+                <!-- Community Section -->
+                <div class="admin-nav-section">
+                    <div class="admin-nav-section-title">Community</div>
+                    <a href="#" class="admin-nav-link" data-section="sports">
+                        <i class="fas fa-futbol"></i>
+                        <span class="admin-nav-link-text">Sports</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="artists">
+                        <i class="fas fa-music"></i>
+                        <span class="admin-nav-link-text">Artists & Musicians</span>
+                        <span class="admin-nav-badge" id="artistsBadge">0</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="community-leaders">
+                        <i class="fas fa-users-cog"></i>
+                        <span class="admin-nav-link-text">Community Leaders</span>
+                        <span class="admin-nav-badge" id="communityLeadersBadge">0</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="students">
+                        <i class="fas fa-user-graduate"></i>
+                        <span class="admin-nav-link-text">Students Association</span>
+                        <span class="admin-nav-badge" id="studentsBadge">0</span>
+                    </a>
+                </div>
+
+                <!-- Communication Section -->
+                <div class="admin-nav-section">
+                    <div class="admin-nav-section-title">Communication</div>
+                    <a href="#" class="admin-nav-link" data-section="messages">
+                        <i class="fas fa-envelope"></i>
+                        <span class="admin-nav-link-text">Contact Messages</span>
+                        <span class="admin-nav-badge" id="messagesBadge">0</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="newsletter">
+                        <i class="fas fa-mail-bulk"></i>
+                        <span class="admin-nav-link-text">Newsletter</span>
+                    </a>
+                </div>
+
+                <!-- System Section -->
+                <div class="admin-nav-section">
+                    <div class="admin-nav-section-title">System</div>
+                    <a href="#" class="admin-nav-link" data-section="users">
+                        <i class="fas fa-users-cog"></i>
+                        <span class="admin-nav-link-text">User Management</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span class="admin-nav-link-text">Site Settings</span>
+                    </a>
+                    <a href="index.html" class="admin-nav-link">
+                        <i class="fas fa-globe"></i>
+                        <span class="admin-nav-link-text">View Website</span>
+                    </a>
+                    <a href="#" class="admin-nav-link" data-action="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="admin-nav-link-text">Logout</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="admin-sidebar-footer">
+                <div class="admin-user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=1e3a5f&color=fff" alt="Admin"
+                        class="admin-user-avatar">
+                    <div class="admin-user-info">
+                        <span class="admin-user-name">Admin User</span>
+                        <span class="admin-user-role">Super Admin</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <main class="admin-main" id="adminMain">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="admin-header-left">
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h1 class="admin-page-title">Dashboard</h1>
+                        <div class="admin-breadcrumb">
+                            <a href="#" data-section="dashboard">Home</a> / <span>Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-header-right">
+                    <div class="admin-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="globalSearchInput" placeholder="Search...">
+                        <div class="search-results-dropdown" id="searchResultsDropdown"></div>
+                    </div>
+
+                    <div class="admin-header-actions">
+                        <button class="admin-action-btn theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="admin-action-btn notification-btn" id="notificationBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge" id="notificationBadge">3</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notification Panel -->
+                <div class="notification-panel" id="notificationPanel">
+                    <div class="notification-header"
+                        style="display:flex; justify-content:space-between; align-items:center; padding: 1rem; border-bottom: 1px solid var(--admin-border);">
+                        <h3>Notifications</h3>
+                        <button onclick="document.getElementById('notificationPanel').classList.remove('active')"><i
+                                class="fas fa-times"></i></button>
+                    </div>
+                    <div class="notification-body" style="max-height: 300px; overflow-y: auto;">
+                        <div class="notification-item"
+                            style="padding: 1rem; border-bottom: 1px solid var(--admin-border); transition: background 0.3s;">
+                            <div style="display:flex; gap:0.5rem; margin-bottom:0.25rem;">
+                                <i class="fas fa-info-circle text-primary"></i>
+                                <strong>System Update</strong>
+                            </div>
+                            <p style="font-size:0.85rem; color: var(--admin-text-secondary); margin:0;">Admin panel
+                                updated to version 5.0</p>
+                            <small style="color:var(--admin-text-muted); font-size:0.75rem;">Just now</small>
+                        </div>
+                        <div class="notification-item"
+                            style="padding: 1rem; border-bottom: 1px solid var(--admin-border); transition: background 0.3s;">
+                            <div style="display:flex; gap:0.5rem; margin-bottom:0.25rem;">
+                                <i class="fas fa-user-plus text-success"></i>
+                                <strong>New Student</strong>
+                            </div>
+                            <p style="font-size:0.85rem; color: var(--admin-text-secondary); margin:0;">John Doe
+                                registered via student portal</p>
+                            <small style="color:var(--admin-text-muted); font-size:0.75rem;">2 hours ago</small>
+                        </div>
+                        <div class="notification-item" style="padding: 1rem; transition: background 0.3s;">
+                            <div style="display:flex; gap:0.5rem; margin-bottom:0.25rem;">
+                                <i class="fas fa-envelope text-warning"></i>
+                                <strong>New Message</strong>
+                            </div>
+                            <p style="font-size:0.85rem; color: var(--admin-text-secondary); margin:0;">Contact form
+                                submission received</p>
+                            <small style="color:var(--admin-text-muted); font-size:0.75rem;">5 hours ago</small>
+                        </div>
+                    </div>
+                    <div class="notification-footer"
+                        style="padding: 0.75rem; text-align: center; border-top: 1px solid var(--admin-border);">
+                        <a href="#" onclick="navigateToSection('messages'); return false;"
+                            style="font-size:0.85rem; color:var(--admin-accent); text-decoration:none;">View All
+                            Notifications</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <div class="admin-content">
+                <!-- ==================== DASHBOARD SECTION ==================== -->
+                <div id="dashboard" class="admin-section">
+                    <div class="admin-stats-grid">
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-header">
+                                <div class="admin-stat-icon primary">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <div class="admin-stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 12%
+                                </div>
+                            </div>
+                            <div class="admin-stat-body">
+                                <div class="admin-stat-label">News Articles</div>
+                                <div class="admin-stat-value" id="newsCount">0</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-header">
+                                <div class="admin-stat-icon success">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <div class="admin-stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 8%
+                                </div>
+                            </div>
+                            <div class="admin-stat-body">
+                                <div class="admin-stat-label">Artists & Musicians</div>
+                                <div class="admin-stat-value" id="artistsCount">0</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-header">
+                                <div class="admin-stat-icon warning">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <div class="admin-stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 5%
+                                </div>
+                            </div>
+                            <div class="admin-stat-body">
+                                <div class="admin-stat-label">Community Leaders</div>
+                                <div class="admin-stat-value" id="communityLeadersCount">0</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-header">
+                                <div class="admin-stat-icon info">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="admin-stat-change positive">
+                                    <i class="fas fa-arrow-up"></i> 15%
+                                </div>
+                            </div>
+                            <div class="admin-stat-body">
+                                <div class="admin-stat-label">Students Registered</div>
+                                <div class="admin-stat-value" id="studentsCount">0</div>
+                            </div>
+                        </div>
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-header">
+                                <div class="admin-stat-icon primary">
+                                    <i class="fas fa-concierge-bell"></i>
+                                </div>
+                            </div>
+                            <div class="admin-stat-body">
+                                <div class="admin-stat-label">Services</div>
+                                <div class="admin-stat-value" id="servicesCount">0</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-header">
+                                <div class="admin-stat-icon warning">
+                                    <i class="fas fa-school"></i>
+                                </div>
+                            </div>
+                            <div class="admin-stat-body">
+                                <div class="admin-stat-label">Institutions</div>
+                                <div class="admin-stat-value" id="educationCount">0</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-header">
+                                <div class="admin-stat-icon danger">
+                                    <i class="fas fa-heartbeat"></i>
+                                </div>
+                            </div>
+                            <div class="admin-stat-body">
+                                <div class="admin-stat-label">Health Facilities</div>
+                                <div class="admin-stat-value" id="healthcareCount">0</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-header">
+                                <div class="admin-stat-icon info">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                            </div>
+                            <div class="admin-stat-body">
+                                <div class="admin-stat-label">Politicians</div>
+                                <div class="admin-stat-value" id="politiciansCount">0</div>
+                            </div>
+                        </div>
+
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-header">
+                                <div class="admin-stat-icon primary">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                            </div>
+                            <div class="admin-stat-body">
+                                <div class="admin-stat-label">County Commissioner</div>
+                                <div class="admin-stat-value" id="commissionerCount">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Quick Actions</h3>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="d-grid grid-auto-fit-200 grid-gap-1">
+                                <button class="admin-btn admin-btn-primary" data-action="addNews">
+                                    <i class="fas fa-plus"></i> Add News Article
+                                </button>
+                                <button class="admin-btn admin-btn-success" data-action="addArtist">
+                                    <i class="fas fa-music"></i> Add Artist
+                                </button>
+                                <button class="admin-btn admin-btn-warning" data-action="addCommunityLeader">
+                                    <i class="fas fa-users-cog"></i> Add Leader
+                                </button>
+                                <button class="admin-btn admin-btn-info" data-action="addStudent">
+                                    <i class="fas fa-user-graduate"></i> Register Student
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Recent Activities</h3>
+                        </div>
+                        <div class="admin-card-body">
+                            <div style="padding: 3rem; text-align: center; color: var(--admin-text-secondary);">
+                                <i class="fas fa-chart-line"
+                                    style="font-size: 3rem; display: block; margin-bottom: 1rem; opacity: 0.5;"></i>
+                                <p>Activity tracking will appear here once you start managing content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== NEWS SECTION ==================== -->
+                <div id="news" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">News Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addNews">
+                            <i class="fas fa-plus"></i> Add News Article
+                        </button>
+                    </div>
+
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Published Articles</h3>
+                            <input type="search" id="newsSearch" placeholder="Search articles..."
+                                class="admin-form-input" style="width: 250px;">
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Category</th>
+                                            <th>Author</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="newsTableBody">
+                                        <tr>
+                                            <td colspan="6" class="text-center p-3 text-secondary">
+                                                No articles found. Create your first news article.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== ARTISTS SECTION ==================== -->
+                <div id="artists" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Artists & Musicians Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addArtist">
+                            <i class="fas fa-plus"></i> Add Artist/Musician
+                        </button>
+                    </div>
+
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Artists Directory</h3>
+                            <div class="admin-card-actions">
+                                <select id="artistCategoryFilter" class="admin-form-select"
+                                    style="margin-right: 0.5rem; width: 180px;">
+                                    <option value="all">All Categories</option>
+                                    <option value="musician">Musicians</option>
+                                    <option value="singer">Singers</option>
+                                    <option value="rapper">Rappers</option>
+                                    <option value="traditional">Traditional Artists</option>
+                                    <option value="visual">Visual Artists</option>
+                                    <option value="dancer">Dancers</option>
+                                    <option value="poet">Poets</option>
+                                </select>
+                                <input type="search" id="artistSearch" placeholder="Search artists..."
+                                    class="admin-form-input" style="width: 200px;">
+                            </div>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Stage Name</th>
+                                            <th>Category</th>
+                                            <th>Genre</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="artistsTableBody">
+                                        <tr>
+                                            <td colspan="7" class="text-center p-3 text-secondary">
+                                                <i class="fas fa-music"
+                                                    style="font-size: 3rem; display: block; margin-bottom: 1rem; opacity: 0.5;"></i>
+                                                No artists or musicians added yet.<br>
+                                                <small>Click "Add Artist/Musician" to showcase the talented individuals
+                                                    of Guit County.</small>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card" style="margin-top: 1.5rem;">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Featured Artists</h3>
+                            <span class="admin-badge admin-badge-primary">Homepage Display</span>
+                        </div>
+                        <div class="admin-card-body" id="featuredArtistsContent">
+                            <p class="text-center p-3 text-secondary">
+                                <i class="fas fa-star"
+                                    style="font-size: 2rem; display: block; margin-bottom: 0.5rem; color: #ffc107;"></i>
+                                No featured artists selected. Mark artists as "Featured" to display them on the
+                                homepage.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== COMMUNITY LEADERS SECTION ==================== -->
+                <div id="community-leaders" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Community Leaders Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addCommunityLeader">
+                            <i class="fas fa-plus"></i> Add Community Leader
+                        </button>
+                    </div>
+
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Leaders Directory</h3>
+                            <div class="admin-card-actions">
+                                <select id="leaderCategoryFilter" class="admin-form-select"
+                                    style="margin-right: 0.5rem; width: 180px;">
+                                    <option value="all">All Categories</option>
+                                    <option value="chief">Traditional Chiefs</option>
+                                    <option value="sub-chief">Sub-Chiefs</option>
+                                    <option value="elder">Elders/Council Members</option>
+                                    <option value="women-leader">Women Leaders</option>
+                                    <option value="youth-leader">Youth Leaders</option>
+                                    <option value="religious">Religious Leaders</option>
+                                    <option value="clan-leader">Clan Leaders</option>
+                                </select>
+                                <input type="search" id="leaderSearch" placeholder="Search leaders..."
+                                    class="admin-form-input" style="width: 200px;">
+                            </div>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Title/Position</th>
+                                            <th>Category</th>
+                                            <th>Payam/Area</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="communityLeadersTableBody">
+                                        <tr>
+                                            <td colspan="6" class="text-center p-3 text-secondary">
+                                                <i class="fas fa-users-cog"
+                                                    style="font-size: 3rem; display: block; margin-bottom: 1rem; opacity: 0.5;"></i>
+                                                No community leaders added yet.<br>
+                                                <small>Click "Add Community Leader" to register traditional leaders,
+                                                    elders, and other community figures.</small>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== STUDENTS SECTION ==================== -->
+                <div id="students" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Guit Students Association</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addStudent">
+                            <i class="fas fa-plus"></i> Register Student
+                        </button>
+                    </div>
+
+                    <div class="admin-card" style="margin-bottom: 1.5rem;">
+                        <div class="admin-card-body" style="padding: 0.5rem;">
+                            <div class="admin-tabs">
+                                <button class="student-tab-btn active" data-tab="all">
+                                    <i class="fas fa-list"></i> All Members
+                                </button>
+                                <button class="student-tab-btn" data-tab="current">
+                                    <i class="fas fa-book-open"></i> Currently Studying
+                                </button>
+                                <button class="student-tab-btn" data-tab="alumni">
+                                    <i class="fas fa-user-check"></i> Alumni/Graduates
+                                </button>
+                                <button class="student-tab-btn" data-tab="university">
+                                    <i class="fas fa-university"></i> University
+                                </button>
+                                <button class="student-tab-btn" data-tab="secondary">
+                                    <i class="fas fa-school"></i> Secondary School
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Students & Alumni Directory</h3>
+                            <div class="admin-card-actions">
+                                <select id="studentLevelFilter" class="admin-form-select"
+                                    style="margin-right: 0.5rem; width: 180px;">
+                                    <option value="all">All Levels</option>
+                                    <option value="primary">Primary School</option>
+                                    <option value="secondary">Secondary School</option>
+                                    <option value="diploma">Diploma/Certificate</option>
+                                    <option value="undergraduate">Undergraduate</option>
+                                    <option value="graduate">Graduate (Bachelor's)</option>
+                                    <option value="masters">Master's Degree</option>
+                                    <option value="phd">PhD / Doctorate</option>
+                                </select>
+                                <input type="search" id="studentSearch" placeholder="Search students..."
+                                    class="admin-form-input" style="width: 200px;">
+                            </div>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Level</th>
+                                            <th>Institution</th>
+                                            <th>Field of Study</th>
+                                            <th>Year</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="studentsTableBody">
+                                        <tr>
+                                            <td colspan="8" class="text-center p-3 text-secondary">
+                                                <i class="fas fa-user-graduate"
+                                                    style="font-size: 3rem; display: block; margin-bottom: 1rem; opacity: 0.5;"></i>
+                                                No students registered yet.<br>
+                                                <small>Click "Register Student" to add members of the Guit Students
+                                                    Association.</small>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== SLIDESHOW SECTION ==================== -->
+                <div id="slideshow" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Hero Slideshow Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addSlide">
+                            <i class="fas fa-plus"></i> Add Slide
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Slides</h3>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Title</th>
+                                            <th>Subtitle</th>
+                                            <th>Order</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="slideshowTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== SERVICES SECTION ==================== -->
+                <div id="services" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Services Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addService">
+                            <i class="fas fa-plus"></i> Add Service
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Services List</h3>
+                            <div class="admin-card-actions">
+                                <select id="serviceCategoryFilter" class="admin-form-select">
+                                    <option value="all">All Categories</option>
+                                    <option value="infrastructure">Infrastructure</option>
+                                    <option value="agriculture">Agriculture</option>
+                                    <option value="health">Health</option>
+                                    <option value="education">Education</option>
+                                </select>
+                                <input type="search" id="serviceSearch" placeholder="Search services..."
+                                    class="admin-form-input">
+                            </div>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Category</th>
+                                            <th>Location</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="servicesTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== EDUCATION SECTION ==================== -->
+                <div id="education" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Education Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addEducation">
+                            <i class="fas fa-plus"></i> Add Institution
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Schools & Institutions</h3>
+                            <div class="admin-card-actions">
+                                <select id="educationTypeFilter" class="admin-form-select">
+                                    <option value="all">All Levels</option>
+                                    <option value="primary">Primary</option>
+                                    <option value="secondary">Secondary</option>
+                                    <option value="university">University</option>
+                                    <option value="vocational">Vocational</option>
+                                </select>
+                                <input type="search" id="educationSearch" placeholder="Search..."
+                                    class="admin-form-input">
+                            </div>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Level</th>
+                                            <th>Location</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="educationTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== HISTORY SECTION ==================== -->
+                <div id="history" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">History Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addHistory">
+                            <i class="fas fa-plus"></i> Add Event
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Year</th>
+                                            <th>Title</th>
+                                            <th>Category</th>
+                                            <th>Description</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="historyTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== HEALTHCARE SECTION ==================== -->
+                <div id="healthcare" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Healthcare Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addHealthcare">
+                            <i class="fas fa-plus"></i> Add Facility
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <h3 class="admin-card-title">Facilities Directory</h3>
+                            <div class="admin-card-actions">
+                                <select id="healthcareTypeFilter" class="admin-form-select">
+                                    <option value="all">All Types</option>
+                                    <option value="hospital">Hospital</option>
+                                    <option value="clinic">Clinic</option>
+                                    <option value="phcc">PHCC</option>
+                                </select>
+                                <input type="search" id="healthcareSearch" placeholder="Search..."
+                                    class="admin-form-input">
+                            </div>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Location</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="healthcareTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== POLITICIANS SECTION ==================== -->
+                <div id="politicians" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Politicians Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addPolitician">
+                            <i class="fas fa-plus"></i> Add Politician
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <div class="admin-card-actions">
+                                <select id="politicianPartyFilter" class="admin-form-select">
+                                    <option value="all">All Parties</option>
+                                </select>
+                                <input type="search" id="politicianSearch" placeholder="Search..."
+                                    class="admin-form-input">
+                            </div>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Party</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="politiciansTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== MILITARY SECTION ==================== -->
+                <div id="military" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Military Command Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addMilitary">
+                            <i class="fas fa-plus"></i> Add Personnel
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <div class="admin-card-actions">
+                                <select id="militaryBranchFilter" class="admin-form-select">
+                                    <option value="all">All Branches</option>
+                                    <option value="army">Army</option>
+                                    <option value="police">Police</option>
+                                    <option value="wildlife">Wildlife</option>
+                                    <option value="prison">Prison</option>
+                                    <option value="fire">Fire Brigade</option>
+                                </select>
+                                <input type="search" id="militarySearch" placeholder="Search..."
+                                    class="admin-form-input">
+                            </div>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Rank</th>
+                                            <th>Branch</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="militaryTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== COMMISSIONER SECTION ==================== -->
+                <div id="commissioner" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">County Commissioner Profile</h2>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-body">
+                            <form id="commissionerForm" class="admin-form">
+                                <input type="hidden" id="commissionerId">
+                                <div class="admin-form-row">
+                                    <div class="admin-form-group">
+                                        <label class="admin-form-label">Full Name</label>
+                                        <input type="text" id="commissionerName" class="admin-form-input"
+                                            placeholder="e.g. Hon. Name">
+                                    </div>
+                                </div>
+                                <div class="admin-form-group">
+                                    <label class="admin-form-label">Message/Bio</label>
+                                    <textarea id="commissionerMessage" class="admin-form-input" rows="6"
+                                        placeholder="Welcome message or biography..."></textarea>
+                                </div>
+                                <div class="admin-form-group">
+                                    <label class="admin-form-label">Photo URL</label>
+                                    <div class="input-upload-group"
+                                        style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                        <input type="text" id="commissionerPhoto" class="admin-form-input"
+                                            style="flex: 1;">
+                                        <div class="file-upload-wrapper"
+                                            style="position: relative; overflow: hidden; display: inline-block;">
+                                            <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                                style="white-space: nowrap;">
+                                                <i class="fas fa-upload"></i> Upload
+                                            </button>
+                                            <input type="file" name="commissionerPhotoFile" accept="image/*"
+                                                style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="admin-form-actions">
+                                    <button type="button" class="admin-btn admin-btn-primary"
+                                        data-action="saveCommissioner">
+                                        <i class="fas fa-save"></i> Save Profile
+                                    </button>
+                                    <button type="button" class="admin-btn admin-btn-danger"
+                                        data-action="deleteCommissioner" style="margin-left: 1rem;">
+                                        <i class="fas fa-trash"></i> Delete Profile
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== PAYAMS SECTION ==================== -->
+                <div id="payams" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Payams Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addPayam">
+                            <i class="fas fa-plus"></i> Add Payam
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Chief</th>
+                                            <th>Population</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="payamsTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== BOMAS SECTION ==================== -->
+                <div id="bomas" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Bomas Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addBoma">
+                            <i class="fas fa-plus"></i> Add Boma
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Population</th>
+                                            <th>Chief</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="bomasTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== SPORTS SECTION ==================== -->
+                <div id="sports" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Sports Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addSports">
+                            <i class="fas fa-plus"></i> Add Entry
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <div class="admin-card-actions">
+                                <select id="sportsCategoryFilter" class="admin-form-select">
+                                    <option value="all">All Sports</option>
+                                    <option value="football">Football</option>
+                                    <option value="basketball">Basketball</option>
+                                    <option value="wrestling">Wrestling</option>
+                                </select>
+                                <input type="search" id="sportsSearch" placeholder="Search..." class="admin-form-input">
+                            </div>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Photo</th>
+                                            <th>Name</th>
+                                            <th>Category</th>
+                                            <th>Details</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sportsTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== MESSAGES SECTION ==================== -->
+                <div id="messages" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Contact Messages</h2>
+                        <span class="admin-badge admin-badge-danger" id="unreadCount">0 Unread</span>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Name</th>
+                                            <th>Subject</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="messagesTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== NEWSLETTER SECTION ==================== -->
+                <div id="newsletter" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Newsletter</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="sendNewsletter">
+                            <i class="fas fa-paper-plane"></i> Create New Blast
+                        </button>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-body text-center p-5">
+                            <i class="fas fa-mail-bulk fa-3x text-primary mb-3"></i>
+                            <h3>Email Campaigns</h3>
+                            <p class="text-secondary">Manage and send newsletters to your subscribers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== USERS SECTION ==================== -->
+                <div id="users" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">User Management</h2>
+                        <button class="admin-btn admin-btn-primary" data-action="addUser">
+                            <i class="fas fa-plus"></i> Add User
+                        </button>
+                        <a href="register.html" class="admin-btn admin-btn-outline-primary"
+                            style="margin-left: 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-user-plus"></i> Register (Full)
+                        </a>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-header">
+                            <div class="admin-card-actions">
+                                <select id="userRoleFilter" class="admin-form-select">
+                                    <option value="all">All Roles</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="editor">Editor</option>
+                                </select>
+                                <input type="search" id="userSearch" placeholder="Search..." class="admin-form-input">
+                            </div>
+                        </div>
+                        <div class="admin-card-body">
+                            <div class="admin-table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Role</th>
+                                            <th>Email</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="usersTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== SETTINGS SECTION ==================== -->
+                <div id="settings" class="admin-section">
+                    <div class="admin-content-header">
+                        <h2 class="admin-content-title">Site Settings</h2>
+                    </div>
+                    <div class="admin-card">
+                        <div class="admin-card-body">
+                            <form id="settingsForm" onsubmit="event.preventDefault(); AdminDashboard.saveSettings();">
+                                <h4 class="mb-3">General Information</h4>
+                                <div class="admin-form-group">
+                                    <label class="admin-form-label">Site Title</label>
+                                    <input type="text" id="siteTitle" class="admin-form-input">
+                                </div>
+                                <div class="admin-form-row">
+                                    <div class="admin-form-group">
+                                        <label class="admin-form-label">Contact Email</label>
+                                        <input type="email" id="contactEmail" class="admin-form-input">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label class="admin-form-label">Contact Phone</label>
+                                        <input type="text" id="contactPhone" class="admin-form-input">
+                                    </div>
+                                </div>
+
+                                <h4 class="mb-3 mt-4">Social Media Links</h4>
+                                <div class="admin-form-row">
+                                    <div class="admin-form-group">
+                                        <label class="admin-form-label">Facebook</label>
+                                        <input type="url" id="facebook" class="admin-form-input">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label class="admin-form-label">Twitter</label>
+                                        <input type="url" id="twitter" class="admin-form-input">
+                                    </div>
+                                </div>
+                                <div class="admin-form-row">
+                                    <div class="admin-form-group">
+                                        <label class="admin-form-label">Instagram</label>
+                                        <input type="url" id="instagram" class="admin-form-input">
+                                    </div>
+                                    <div class="admin-form-group">
+                                        <label class="admin-form-label">YouTube</label>
+                                        <input type="url" id="youtube" class="admin-form-input">
+                                    </div>
+                                </div>
+
+                                <div class="text-right mt-4">
+                                    <button type="submit" class="admin-btn admin-btn-primary">
+                                        <i class="fas fa-save"></i> Save Settings
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ==================== MODALS ==================== -->
+
+    <!-- Artist Modal -->
+    <div id="artistModal" class="admin-modal-overlay">
+        <div class="admin-modal" style="max-width: 700px;">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="artistModalTitle">Add Artist/Musician</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body" style="max-height: 70vh; overflow-y: auto;">
+                <form id="artistForm">
+                    <input type="hidden" id="artistId">
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="artistFullName">Full Name</label>
+                            <input type="text" id="artistFullName" class="admin-form-input"
+                                placeholder="Enter full name" required>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="artistStageName">Stage Name / Artist Name</label>
+                            <input type="text" id="artistStageName" class="admin-form-input"
+                                placeholder="Stage or artist name">
+                        </div>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="artistCategory">Category</label>
+                            <select id="artistCategory" class="admin-form-select" required>
+                                <option value="">Select Category</option>
+                                <option value="musician">Musician</option>
+                                <option value="singer">Singer</option>
+                                <option value="rapper">Rapper</option>
+                                <option value="traditional">Traditional Artist</option>
+                                <option value="visual">Visual Artist</option>
+                                <option value="dancer">Dancer</option>
+                                <option value="poet">Poet</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="artistGenre">Genre / Style</label>
+                            <input type="text" id="artistGenre" class="admin-form-input"
+                                placeholder="e.g., Gospel, Hip-Hop, Traditional">
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="artistPhoto">Photo URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="artistPhoto" class="admin-form-input"
+                                placeholder="https://example.com/photo.jpg" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="artistPhotoFile" accept="image/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required" for="artistBio">Biography</label>
+                        <textarea id="artistBio" class="admin-form-textarea" rows="4"
+                            placeholder="Write a brief biography of the artist..." required></textarea>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="artistAchievements">Notable Achievements</label>
+                        <textarea id="artistAchievements" class="admin-form-textarea" rows="3"
+                            placeholder="List notable achievements, awards, performances..."></textarea>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="artistPayam">Payam (Origin)</label>
+                            <input type="text" id="artistPayam" class="admin-form-input" placeholder="Payam of origin">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="artistContact">Contact Info</label>
+                            <input type="text" id="artistContact" class="admin-form-input" placeholder="Phone or email">
+                        </div>
+                    </div>
+
+                    <h4 style="margin: 1.5rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--admin-border);">
+                        <i class="fas fa-share-alt"></i> Social Media Links
+                    </h4>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="artistFacebook">
+                                <i class="fab fa-facebook" style="color: #1877f2;"></i> Facebook
+                            </label>
+                            <input type="url" id="artistFacebook" class="admin-form-input"
+                                placeholder="https://facebook.com/...">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="artistInstagram">
+                                <i class="fab fa-instagram" style="color: #e4405f;"></i> Instagram
+                            </label>
+                            <input type="url" id="artistInstagram" class="admin-form-input"
+                                placeholder="https://instagram.com/...">
+                        </div>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="artistYouTube">
+                                <i class="fab fa-youtube" style="color: #ff0000;"></i> YouTube
+                            </label>
+                            <input type="url" id="artistYouTube" class="admin-form-input"
+                                placeholder="https://youtube.com/...">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="artistTikTok">
+                                <i class="fab fa-tiktok"></i> TikTok
+                            </label>
+                            <input type="url" id="artistTikTok" class="admin-form-input"
+                                placeholder="https://tiktok.com/...">
+                        </div>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="artistStatus">Status</label>
+                            <select id="artistStatus" class="admin-form-select">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <div class="admin-form-check" style="margin-top: 2rem;">
+                                <input type="checkbox" id="artistFeatured">
+                                <label for="artistFeatured" class="admin-form-check-label">
+                                    <i class="fas fa-star" style="color: #ffc107;"></i> Feature on Homepage
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="artistModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveArtist">
+                    <i class="fas fa-save"></i> Save Artist
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Modal -->
+    <div id="newsModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="newsModalTitle">Add News Article</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="newsForm">
+                    <input type="hidden" id="newsId">
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required" for="newsTitle">Article Title</label>
+                        <input type="text" id="newsTitle" class="admin-form-input" placeholder="Enter article title"
+                            required>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="newsCategory">Category</label>
+                            <select id="newsCategory" class="admin-form-select">
+                                <option value="General">General</option>
+                                <option value="Development">Development</option>
+                                <option value="Politics">Politics</option>
+                                <option value="Education">Education</option>
+                                <option value="Health">Health</option>
+                                <option value="Sports">Sports</option>
+                                <option value="Culture">Culture</option>
+                            </select>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="newsAuthor">Author</label>
+                            <input type="text" id="newsAuthor" class="admin-form-input" placeholder="Author name"
+                                value="Admin">
+                        </div>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="newsMediaType">Media Type</label>
+                            <select id="newsMediaType" class="admin-form-select">
+                                <option value="image">Image Only</option>
+                                <option value="video">Video (YouTube/Direct)</option>
+                                <option value="audio">Audio (Podcast/MP3)</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="newsMediaUrl">Media URL</label>
+                            <div class="input-upload-group"
+                                style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                <input type="text" id="newsMediaUrl" class="admin-form-input"
+                                    placeholder="YouTube link or media file URL" style="flex: 1;">
+                                <div class="file-upload-wrapper"
+                                    style="position: relative; overflow: hidden; display: inline-block;">
+                                    <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                        style="white-space: nowrap;">
+                                        <i class="fas fa-upload"></i> Upload
+                                    </button>
+                                    <input type="file" name="newsMediaFile" accept="video/*,audio/*"
+                                        style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="newsImage">Featured Image URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="newsImage" class="admin-form-input"
+                                placeholder="https://example.com/image.jpg" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="newsImageFile" accept="image/*,video/*,audio/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required" for="newsContent">Article Content</label>
+                        <textarea id="newsContent" class="admin-form-textarea" rows="8"
+                            placeholder="Write your article content here..." required></textarea>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="newsStatus">Status</label>
+                        <select id="newsStatus" class="admin-form-select">
+                            <option value="draft">Draft</option>
+                            <option value="published">Published</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="newsModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveNews">
+                    <i class="fas fa-save"></i> Save Article
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Community Leader Modal -->
+    <div id="communityLeaderModal" class="admin-modal-overlay">
+        <div class="admin-modal" style="max-width: 700px;">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="communityLeaderModalTitle">Add Community Leader</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body" style="max-height: 70vh; overflow-y: auto;">
+                <form id="communityLeaderForm">
+                    <input type="hidden" id="leaderId">
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="leaderFullName">Full Name</label>
+                            <input type="text" id="leaderFullName" class="admin-form-input"
+                                placeholder="Enter full name" required>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="leaderTitle">Title/Position</label>
+                            <input type="text" id="leaderTitle" class="admin-form-input"
+                                placeholder="e.g., Chief, Elder, Chairman" required>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="leaderCategory">Category</label>
+                            <select id="leaderCategory" class="admin-form-select" required>
+                                <option value="">Select Category</option>
+                                <option value="chief">Traditional Chief (Paramount)</option>
+                                <option value="sub-chief">Sub-Chief</option>
+                                <option value="elder">Elder/Council Member</option>
+                                <option value="women-leader">Women Leader</option>
+                                <option value="youth-leader">Youth Leader</option>
+                                <option value="religious">Religious Leader</option>
+                                <option value="clan-leader">Clan Leader</option>
+                                <option value="business">Business Leader</option>
+                                <option value="diaspora">Community Leader</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="leaderPayam">Payam/Area</label>
+                            <input type="text" id="leaderPayam" class="admin-form-input"
+                                placeholder="Payam or area of jurisdiction" required>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="leaderBoma">Boma (if applicable)</label>
+                        <input type="text" id="leaderBoma" class="admin-form-input" placeholder="Boma name">
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="leaderPhoto">Photo URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="leaderPhoto" class="admin-form-input"
+                                placeholder="https://example.com/photo.jpg" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="leaderPhotoFile" accept="image/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required" for="leaderBio">Biography/Background</label>
+                        <textarea id="leaderBio" class="admin-form-textarea" rows="4"
+                            placeholder="Brief biography and background..." required></textarea>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="leaderPhone">Phone Number</label>
+                            <input type="tel" id="leaderPhone" class="admin-form-input" placeholder="+211 XXX XXX XXX">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="leaderEmail">Email (if available)</label>
+                            <input type="email" id="leaderEmail" class="admin-form-input"
+                                placeholder="email@example.com">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="communityLeaderModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveCommunityLeader">
+                    <i class="fas fa-save"></i> Save Leader
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Modal -->
+    <div id="studentModal" class="admin-modal-overlay">
+        <div class="admin-modal" style="max-width: 800px;">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="studentModalTitle">Register Student</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body" style="max-height: 70vh; overflow-y: auto;">
+                <form id="studentForm">
+                    <input type="hidden" id="studentId">
+
+                    <h4
+                        style="margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--admin-border);">
+                        <i class="fas fa-user"></i> Personal Information
+                    </h4>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="studentFirstName">First Name</label>
+                            <input type="text" id="studentFirstName" class="admin-form-input" placeholder="First name"
+                                required>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentMiddleName">Middle Name</label>
+                            <input type="text" id="studentMiddleName" class="admin-form-input"
+                                placeholder="Middle name">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="studentLastName">Last Name</label>
+                            <input type="text" id="studentLastName" class="admin-form-input" placeholder="Last name"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="studentGender">Gender</label>
+                            <select id="studentGender" class="admin-form-select" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentDOB">Date of Birth</label>
+                            <input type="date" id="studentDOB" class="admin-form-input">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="studentPayam">Payam of Origin</label>
+                            <input type="text" id="studentPayam" class="admin-form-input" placeholder="Payam name"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="studentPhoto">Photo URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="studentPhoto" class="admin-form-input"
+                                placeholder="https://example.com/photo.jpg" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="studentPhotoFile" accept="image/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4
+                        style="margin: 1.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--admin-border);">
+                        <i class="fas fa-graduation-cap"></i> Education Information
+                    </h4>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="studentLevel">Education Level</label>
+                            <select id="studentLevel" class="admin-form-select" required>
+                                <option value="">Select Level</option>
+                                <option value="primary">Primary School</option>
+                                <option value="secondary">Secondary School</option>
+                                <option value="diploma">Diploma/Certificate</option>
+                                <option value="undergraduate">Undergraduate (Bachelor's in progress)</option>
+                                <option value="graduate">Graduate (Bachelor's Complete)</option>
+                                <option value="masters">Master's Degree</option>
+                                <option value="phd">PhD / Doctorate</option>
+                                <option value="vocational">Vocational/Technical Training</option>
+                            </select>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="studentStudyStatus">Current Status</label>
+                            <select id="studentStudyStatus" class="admin-form-select" required>
+                                <option value="">Select Status</option>
+                                <option value="current">Currently Studying</option>
+                                <option value="graduated">Graduated/Completed</option>
+                                <option value="deferred">Deferred/On Leave</option>
+                                <option value="dropped">Dropped Out</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required" for="studentInstitution">Institution/School
+                                Name</label>
+                            <input type="text" id="studentInstitution" class="admin-form-input"
+                                placeholder="e.g., University of Juba" required>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentCountry">Country of Study</label>
+                            <input type="text" id="studentCountry" class="admin-form-input"
+                                placeholder="e.g., South Sudan" value="South Sudan">
+                        </div>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentField">Field of Study/Major</label>
+                            <input type="text" id="studentField" class="admin-form-input"
+                                placeholder="e.g., Medicine, Engineering, Law">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentSpecialization">Specialization</label>
+                            <input type="text" id="studentSpecialization" class="admin-form-input"
+                                placeholder="e.g., Cardiovascular Surgery">
+                        </div>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentYear">Current Year/Class</label>
+                            <input type="text" id="studentYear" class="admin-form-input"
+                                placeholder="e.g., Year 3, Final Year">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentEnrollYear">Enrollment Year</label>
+                            <input type="number" id="studentEnrollYear" class="admin-form-input"
+                                placeholder="e.g., 2022" min="1950" max="2030">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentGradYear">Graduation Year</label>
+                            <input type="number" id="studentGradYear" class="admin-form-input" placeholder="e.g., 2026"
+                                min="1950" max="2040">
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <div class="admin-form-check">
+                            <input type="checkbox" id="studentScholarship">
+                            <label for="studentScholarship" class="admin-form-check-label">
+                                <i class="fas fa-award" style="color: #ffc107;"></i> Has Scholarship/Sponsorship
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="scholarshipFields"
+                        style="display: none; padding: 1rem; background: var(--admin-bg-secondary); border-radius: 8px; margin-top: 1rem;">
+                        <div class="admin-form-row">
+                            <div class="admin-form-group">
+                                <label class="admin-form-label" for="studentScholarshipName">Scholarship
+                                    Name/Sponsor</label>
+                                <input type="text" id="studentScholarshipName" class="admin-form-input"
+                                    placeholder="e.g., Government Scholarship">
+                            </div>
+
+                            <div class="admin-form-group">
+                                <label class="admin-form-label" for="studentScholarshipType">Scholarship Type</label>
+                                <select id="studentScholarshipType" class="admin-form-select">
+                                    <option value="">Select Type</option>
+                                    <option value="full">Full Scholarship</option>
+                                    <option value="partial">Partial Scholarship</option>
+                                    <option value="tuition">Tuition Only</option>
+                                    <option value="living">Living Expenses Only</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4
+                        style="margin: 1.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--admin-border);">
+                        <i class="fas fa-address-card"></i> Contact Information
+                    </h4>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentPhone">Phone Number</label>
+                            <input type="tel" id="studentPhone" class="admin-form-input" placeholder="+211 XXX XXX XXX">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentEmail">Email Address</label>
+                            <input type="email" id="studentEmail" class="admin-form-input"
+                                placeholder="student@email.com">
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="studentAddress">Current Address/Location</label>
+                        <input type="text" id="studentAddress" class="admin-form-input" placeholder="City, Country">
+                    </div>
+
+                    <h4
+                        style="margin: 1.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--admin-border);">
+                        <i class="fas fa-share-alt"></i> Social Media (Optional)
+                    </h4>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentFacebook">
+                                <i class="fab fa-facebook" style="color: #1877f2;"></i> Facebook
+                            </label>
+                            <input type="url" id="studentFacebook" class="admin-form-input"
+                                placeholder="https://facebook.com/...">
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentLinkedIn">
+                                <i class="fab fa-linkedin" style="color: #0077b5;"></i> LinkedIn
+                            </label>
+                            <input type="url" id="studentLinkedIn" class="admin-form-input"
+                                placeholder="https://linkedin.com/in/...">
+                        </div>
+                    </div>
+
+                    <h4
+                        style="margin: 1.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--admin-border);">
+                        <i class="fas fa-info-circle"></i> Additional Information
+                    </h4>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="studentAchievements">Achievements & Awards</label>
+                        <textarea id="studentAchievements" class="admin-form-textarea" rows="3"
+                            placeholder="Academic achievements, awards, honors..."></textarea>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="studentActivities">Extracurricular Activities</label>
+                        <textarea id="studentActivities" class="admin-form-textarea" rows="2"
+                            placeholder="Student associations, sports, volunteering..."></textarea>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label" for="studentCareerGoal">Career Goals/Aspirations</label>
+                        <textarea id="studentCareerGoal" class="admin-form-textarea" rows="2"
+                            placeholder="Future plans and how they intend to contribute to Guit County..."></textarea>
+                    </div>
+
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentMemberStatus">Association Member Status</label>
+                            <select id="studentMemberStatus" class="admin-form-select">
+                                <option value="active">Active Member</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="pending">Pending Verification</option>
+                            </select>
+                        </div>
+
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="studentJoinDate">Member Since</label>
+                            <input type="date" id="studentJoinDate" class="admin-form-input">
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <div class="admin-form-check">
+                            <input type="checkbox" id="studentNotable">
+                            <label for="studentNotable" class="admin-form-check-label">
+                                <i class="fas fa-star" style="color: #ffc107;"></i> Mark as Notable Alumni/Achiever
+                                (Featured on Homepage)
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="studentModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveStudent">
+                    <i class="fas fa-save"></i> Save Student
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slideshow Modal -->
+    <div id="slideshowModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="slideshowModalTitle">Add Slide</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="slideshowForm">
+                    <input type="hidden" id="slideId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Title</label>
+                        <input type="text" id="slideTitle" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Subtitle</label>
+                        <input type="text" id="slideSubtitle" class="admin-form-input">
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Image URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="slideImage" class="admin-form-input" required style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="slideImageFile" accept="image/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Button Text</label>
+                            <input type="text" id="slideBtnText" class="admin-form-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Button Link</label>
+                            <input type="text" id="slideBtnLink" class="admin-form-input">
+                        </div>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Order</label>
+                            <input type="number" id="slideOrder" class="admin-form-input" value="0">
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Status</label>
+                            <select id="slideStatus" class="admin-form-select">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="slideshowModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveSlide">Save Slide</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Modal -->
+    <div id="serviceModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="serviceModalTitle">Add Service</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="serviceForm">
+                    <input type="hidden" id="serviceId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Service Name</label>
+                        <input type="text" id="serviceName" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required">Category</label>
+                            <select id="serviceCategory" class="admin-form-select" required>
+                                <option value="infrastructure">Infrastructure</option>
+                                <option value="agriculture">Agriculture</option>
+                                <option value="health">Health</option>
+                                <option value="education">Education</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Location</label>
+                            <input type="text" id="serviceLocation" class="admin-form-input">
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Description</label>
+                        <textarea id="serviceDescription" class="admin-form-textarea" rows="4" required></textarea>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Status</label>
+                        <select id="serviceStatus" class="admin-form-select">
+                            <option value="active">Active</option>
+                            <option value="planned">Planned</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="serviceModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveService">Save Service</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Modal -->
+    <div id="educationModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="educationModalTitle">Add Institution</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="educationForm">
+                    <input type="hidden" id="educationId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Name</label>
+                        <input type="text" id="educationName" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required">Level</label>
+                            <select id="educationLevel" class="admin-form-select" required>
+                                <option value="primary">Primary</option>
+                                <option value="secondary">Secondary</option>
+                                <option value="university">University</option>
+                                <option value="vocational">Vocational</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Location</label>
+                            <input type="text" id="educationLocation" class="admin-form-input">
+                        </div>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Principal/Head</label>
+                            <input type="text" id="educationPrincipal" class="admin-form-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Image URL</label>
+                            <div class="input-upload-group"
+                                style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                <input type="text" id="educationImage" class="admin-form-input" style="flex: 1;">
+                                <div class="file-upload-wrapper"
+                                    style="position: relative; overflow: hidden; display: inline-block;">
+                                    <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                        style="white-space: nowrap;">
+                                        <i class="fas fa-upload"></i> Upload
+                                    </button>
+                                    <input type="file" name="educationImageFile" accept="image/*"
+                                        style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Status</label>
+                            <select id="educationStatus" class="admin-form-select">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="educationModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveEducation">Save Institution</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="historyModalTitle">Add Event</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="historyForm">
+                    <input type="hidden" id="historyId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Title</label>
+                        <input type="text" id="historyTitle" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required">Year</label>
+                            <input type="number" id="historyYear" class="admin-form-input" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Category</label>
+                            <select id="historyCategory" class="admin-form-select">
+                                <option value="general">General</option>
+                                <option value="political">Political</option>
+                                <option value="cultural">Cultural</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="historyMediaType">Media Type</label>
+                            <select id="historyMediaType" class="admin-form-select">
+                                <option value="image">Image Only</option>
+                                <option value="video">Video (YouTube/Direct)</option>
+                                <option value="audio">Audio (Podcast/Speech)</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label" for="historyMediaUrl">Media URL</label>
+                            <div class="input-upload-group"
+                                style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                                <input type="text" id="historyMediaUrl" class="admin-form-input"
+                                    placeholder="YouTube link or media file URL" style="flex: 1;">
+                                <div class="file-upload-wrapper"
+                                    style="position: relative; overflow: hidden; display: inline-block;">
+                                    <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                        style="white-space: nowrap;">
+                                        <i class="fas fa-upload"></i> Upload
+                                    </button>
+                                    <input type="file" name="historyMediaFile" accept="video/*,audio/*"
+                                        style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Featured Image URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="historyImage" class="admin-form-input" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="historyImageFile" accept="image/*,video/*,audio/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Description</label>
+                        <textarea id="historyDescription" class="admin-form-textarea" rows="4" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="historyModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveHistory">Save Event</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Healthcare Modal -->
+    <div id="healthcareModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="healthcareModalTitle">Add Facility</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="healthcareForm">
+                    <input type="hidden" id="healthcareId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Name</label>
+                        <input type="text" id="healthcareName" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required">Type</label>
+                            <select id="healthcareType" class="admin-form-select" required>
+                                <option value="hospital">Hospital</option>
+                                <option value="clinic">Clinic</option>
+                                <option value="phcc">PHCC</option>
+                                <option value="pharmacy">Pharmacy</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Location</label>
+                            <input type="text" id="healthcareLocation" class="admin-form-input">
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Services (comma separated)</label>
+                        <input type="text" id="healthcareServices" class="admin-form-input">
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Image URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="healthcareImage" class="admin-form-input" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="healthcareImageFile" accept="image/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Status</label>
+                        <select id="healthcareStatus" class="admin-form-select">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="healthcareModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveHealthcare">Save Facility</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Politician Modal -->
+    <div id="politicianModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="politicianModalTitle">Add Politician</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="politicianForm">
+                    <input type="hidden" id="politicianId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Full Name</label>
+                        <input type="text" id="politicianName" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required">Position</label>
+                            <input type="text" id="politicianPosition" class="admin-form-input" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Party</label>
+                            <input type="text" id="politicianParty" class="admin-form-input">
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Photo URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="politicianPhoto" class="admin-form-input" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="politicianPhotoFile" accept="image/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Biography</label>
+                        <textarea id="politicianBio" class="admin-form-input" rows="4"
+                            placeholder="Brief biography of the politician..."></textarea>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Status</label>
+                        <select id="politicianStatus" class="admin-form-select">
+                            <option value="active">Active</option>
+                            <option value="former">Former</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="politicianModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="savePolitician">Save Politician</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Military Modal -->
+    <div id="militaryModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="militaryModalTitle">Add Personnel</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="militaryForm">
+                    <input type="hidden" id="militaryId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Full Name</label>
+                        <input type="text" id="militaryName" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required">Rank</label>
+                            <input type="text" id="militaryRank" class="admin-form-input" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label required">Branch</label>
+                            <select id="militaryBranch" class="admin-form-select">
+                                <option value="army">Army</option>
+                                <option value="police">Police</option>
+                                <option value="wildlife">Wildlife</option>
+                                <option value="prison">Prison Service</option>
+                                <option value="fire">Fire Brigade</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Photo URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="militaryPhoto" class="admin-form-input" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="militaryPhotoFile" accept="image/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="militaryModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveMilitary">Save Personnel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Boma Modal -->
+    <div id="bomaModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="bomaModalTitle">Add Boma</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="bomaForm">
+                    <input type="hidden" id="bomaId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Name</label>
+                        <input type="text" id="bomaName" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Payam</label>
+                        <input type="text" id="bomaPayam" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Population</label>
+                            <input type="text" id="bomaPopulation" class="admin-form-input">
+                        </div>
+                        <div class="admin-form-group">
+                            <label class="admin-form-label">Chief</label>
+                            <input type="text" id="bomaChief" class="admin-form-input">
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Image URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="bomaImage" class="admin-form-input" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="bomaImageFile" accept="image/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Status</label>
+                        <select id="bomaStatus" class="admin-form-select">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="bomaModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveBoma">Save Boma</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sports Modal -->
+    <div id="sportsModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="sportsModalTitle">Add Sports Entry</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="sportsForm">
+                    <input type="hidden" id="sportsId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Name</label>
+                        <input type="text" id="sportsName" class="admin-form-input" placeholder="e.g. Guit United FC"
+                            required>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Category</label>
+                        <select id="sportsCategory" class="admin-form-select" required>
+                            <option value="football">Football</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="volleyball">Volleyball</option>
+                            <option value="wrestling">Wrestling</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Details/Description</label>
+                        <textarea id="sportsDetails" class="admin-form-textarea" rows="3"></textarea>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Image URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="sportsImage" class="admin-form-input" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="sportsImageFile" accept="image/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Status</label>
+                        <select id="sportsStatus" class="admin-form-select">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="sportsModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveSports">Save Entry</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Modal -->
+    <div id="newsletterModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title">Send Newsletter</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="newsletterForm">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Subject</label>
+                        <input type="text" id="newsletterSubject" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Message</label>
+                        <textarea id="newsletterMessage" class="admin-form-textarea" rows="6" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="newsletterModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="performSendNewsletter">
+                    <i class="fas fa-paper-plane"></i> Send Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Modal -->
+    <div id="userModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="userModalTitle">Add User</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="userForm">
+                    <input type="hidden" id="userId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Username</label>
+                        <input type="text" id="userUsername" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Email</label>
+                        <input type="email" id="userEmail" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Role</label>
+                        <select id="userRole" class="admin-form-select" required>
+                            <option value="admin">Admin</option>
+                            <option value="editor">Editor</option>
+                            <option value="viewer">Viewer</option>
+                        </select>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Password</label>
+                        <input type="password" id="userPassword" class="admin-form-input"
+                            placeholder="Leave blank if unchanged">
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Status</label>
+                        <select id="userStatus" class="admin-form-select">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="userModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="saveUser">Save User</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payam Modal -->
+    <div id="payamModal" class="admin-modal-overlay">
+        <div class="admin-modal">
+            <div class="admin-modal-header">
+                <h3 class="admin-modal-title" id="payamModalTitle">Add Payam</h3>
+                <button class="admin-modal-close"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="payamForm">
+                    <input type="hidden" id="payamId">
+                    <div class="admin-form-group">
+                        <label class="admin-form-label required">Payam Name</label>
+                        <input type="text" id="payamName" class="admin-form-input" required>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Chief Name</label>
+                        <input type="text" id="payamChief" class="admin-form-input">
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Population</label>
+                        <input type="number" id="payamPopulation" class="admin-form-input">
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Image URL</label>
+                        <div class="input-upload-group" style="display: flex; gap: 0.5rem; align-items: flex-start;">
+                            <input type="text" id="payamImage" class="admin-form-input" style="flex: 1;">
+                            <div class="file-upload-wrapper"
+                                style="position: relative; overflow: hidden; display: inline-block;">
+                                <button type="button" class="admin-btn admin-btn-outline-secondary"
+                                    style="white-space: nowrap;">
+                                    <i class="fas fa-upload"></i> Upload
+                                </button>
+                                <input type="file" name="payamImageFile" accept="image/*"
+                                    style="position: absolute; font-size: 100px; right: 0; top: 0; opacity: 0; cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label class="admin-form-label">Status</label>
+                        <select id="payamStatus" class="admin-form-select">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="admin-modal-footer">
+                <button class="admin-btn admin-btn-outline-secondary" data-modal="payamModal">Cancel</button>
+                <button class="admin-btn admin-btn-primary" data-action="savePayam">Save Payam</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/admin.js"></script>
+</body>
+
+</html>

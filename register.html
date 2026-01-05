@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Guit County</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/guit-logo.jpg">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Register Container with Split Design */
+        .register-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Left Side - Brand & Info */
+        .register-brand {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-brand::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .brand-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .brand-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            display: block;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            background: white;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .brand-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        .brand-benefits {
+            display: grid;
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Right Side - Register Form */
+        .register-form-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        [data-theme="dark"] .register-form-section {
+            background: #1a1a2e;
+        }
+
+        .register-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 520px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        [data-theme="dark"] .register-card {
+            background: #16213e;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Custom Scrollbar */
+        .register-card::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .register-card::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .register-card::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .register-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .register-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        [data-theme="dark"] .register-title {
+            color: #fff;
+        }
+
+        .register-subtitle {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        [data-theme="dark"] .register-subtitle {
+            color: #a0aec0;
+        }
+
+        /* Form Progress Indicator */
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .progress-steps::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e2e8f0;
+            z-index: 1;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+            z-index: 2;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            color: #718096;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .step.active .step-number {
+            background: #667eea;
+            color: white;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+        }
+
+        .step.completed .step-number {
+            background: #48bb78;
+            color: white;
+        }
+
+        .step-label {
+            font-size: 0.75rem;
+            color: #a0aec0;
+            font-weight: 600;
+        }
+
+        .step.active .step-label {
+            color: #667eea;
+        }
+
+        /* Form Styles */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        [data-theme="dark"] .form-group label {
+            color: #cbd5e0;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 3rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: #f7fafc;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        [data-theme="dark"] .form-group input,
+        [data-theme="dark"] .form-group select {
+            background: #1a202c;
+            border-color: #2d3748;
+            color: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        [data-theme="dark"] .form-group input:focus,
+        [data-theme="dark"] .form-group select:focus {
+            background: #2d3748;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #a0aec0;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: #667eea;
+        }
+
+        /* Password Strength Indicator */
+        .password-strength {
+            margin-top: 0.5rem;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .password-strength.show {
+            display: block;
+        }
+
+        .strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s ease;
+        }
+
+        .strength-bar.weak {
+            width: 33%;
+            background: #f56565;
+        }
+
+        .strength-bar.medium {
+            width: 66%;
+            background: #ed8936;
+        }
+
+        .strength-bar.strong {
+            width: 100%;
+            background: #48bb78;
+        }
+
+        .strength-text {
+            margin-top: 0.25rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .strength-text.weak {
+            color: #f56565;
+        }
+
+        .strength-text.medium {
+            color: #ed8936;
+        }
+
+        .strength-text.strong {
+            color: #48bb78;
+        }
+
+        /* Terms Checkbox */
+        .terms-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f7fafc;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .terms-group:has(input:checked) {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        [data-theme="dark"] .terms-group {
+            background: #1a202c;
+        }
+
+        .terms-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #667eea;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .terms-text {
+            font-size: 0.85rem;
+            color: #4a5568;
+            line-height: 1.5;
+        }
+
+        [data-theme="dark"] .terms-text {
+            color: #cbd5e0;
+        }
+
+        .terms-text a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-register {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-register::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-register:hover::before {
+            left: 100%;
+        }
+
+        .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-register:active {
+            transform: translateY(0);
+        }
+
+        .btn-register:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .register-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .register-message.show {
+            display: block;
+        }
+
+        .register-message.success {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .register-message.error {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .divider {
+            margin: 1.5rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e2e8f0;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 1rem;
+            color: #a0aec0;
+            font-size: 0.85rem;
+            position: relative;
+        }
+
+        [data-theme="dark"] .divider span {
+            background: #16213e;
+            color: #718096;
+        }
+
+        .login-link {
+            text-align: center;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .login-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .login-link a:hover {
+            color: #764ba2;
+        }
+
+        /* Validation Styles */
+        .form-group.error input {
+            border-color: #f56565;
+            background: #fff5f5;
+        }
+
+        .form-group.success input {
+            border-color: #48bb78;
+        }
+
+        .error-message {
+            color: #f56565;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .validation-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            display: none;
+        }
+
+        .form-group.error .validation-icon.error-icon {
+            display: block;
+            color: #f56565;
+        }
+
+        .form-group.success .validation-icon.success-icon {
+            display: block;
+            color: #48bb78;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .register-container {
+                grid-template-columns: 1fr;
+            }
+
+            .register-brand {
+                padding: 3rem 2rem;
+                min-height: 30vh;
+            }
+
+            .brand-title {
+                font-size: 2rem;
+            }
+
+            .brand-subtitle {
+                font-size: 1rem;
+            }
+
+            .brand-benefits {
+                display: none;
+            }
+
+            .back-button {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .register-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .register-form-section {
+                padding: 2rem 1rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-steps {
+                display: none;
+            }
+        }
+
+        /* Loading Animation */
+        .btn-register.loading {
+            pointer-events: none;
+        }
+
+        .btn-register.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-text">GUIT COUNTY</div>
+        </div>
+    </div>
+
+    <div class="register-container">
+        <!-- Left Side - Brand -->
+        <div class="register-brand" data-aos="fade-right">
+            <div class="brand-content">
+                <img src="assets/images/guit-logo.jpg" alt="Guit County Logo" class="brand-logo">
+                <h1 class="brand-title">Join Us Today</h1>
+                <p class="brand-subtitle">Become part of the Guit County<br>digital community</p>
+
+                <div class="brand-benefits">
+                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="benefit-icon"><i class="fas fa-user-check"></i></div>
+                        <div>
+                            <strong>Verified Account</strong>
+                            <p style="font-size: 0.85rem; opacity: 0.8; margin: 0;">Get official county services</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="benefit-icon"><i class="fas fa-file-alt"></i></div>
+                        <div>
+                            <strong>Easy Documentation</strong>
+                            <p style="font-size: 0.85rem; opacity: 0.8; margin: 0;">Apply for permits & certificates</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="benefit-icon"><i class="fas fa-bell"></i></div>
+                        <div>
+                            <strong>Stay Updated</strong>
+                            <p style="font-size: 0.85rem; opacity: 0.8; margin: 0;">Receive important announcements</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+                        <div>
+                            <strong>24/7 Support</strong>
+                            <p style="font-size: 0.85rem; opacity: 0.8; margin: 0;">Get help when you need it</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Register Form -->
+        <div class="register-form-section" data-aos="fade-left">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+
+            <div class="register-card">
+                <div class="register-header">
+                    <h2 class="register-title">Create Your Account</h2>
+                    <p class="register-subtitle">Fill in your details to get started</p>
+                </div>
+
+                <!-- Progress Steps -->
+                <div class="progress-steps">
+                    <div class="progress-line" id="progressLine"></div>
+                    <div class="step active" id="step1">
+                        <div class="step-number">1</div>
+                        <span class="step-label">Personal</span>
+                    </div>
+                    <div class="step" id="step2">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Contact</span>
+                    </div>
+                    <div class="step" id="step3">
+                        <div class="step-number">3</div>
+                        <span class="step-label">Security</span>
+                    </div>
+                </div>
+
+                <form id="register-form">
+                    <!-- Personal Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstname">First Name *</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="firstname" name="firstname" placeholder="John" required>
+                                <i class="fas fa-check validation-icon success-icon"></i>
+                                <i class="fas fa-times validation-icon error-icon"></i>
+                            </div>
+                            <span class="error-message">Please enter your first name</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastname">Last Name *</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="lastname" name="lastname" placeholder="Doe" required>
+                                <i class="fas fa-check validation-icon success-icon"></i>
+                                <i class="fas fa-times validation-icon error-icon"></i>
+                            </div>
+                            <span class="error-message">Please enter your last name</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+                            <i class="fas fa-check validation-icon success-icon"></i>
+                            <i class="fas fa-times validation-icon error-icon"></i>
+                        </div>
+                        <span class="error-message">Please enter a valid email address</span>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-phone input-icon"></i>
+                                <input type="tel" id="phone" name="phone" placeholder="+211 XXX XXX XXX" required>
+                                <i class="fas fa-check validation-icon success-icon"></i>
+                                <i class="fas fa-times validation-icon error-icon"></i>
+                            </div>
+                            <span class="error-message">Please enter a valid phone number</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender *</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-venus-mars input-icon"></i>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <span class="error-message">Please select your gender</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Location/Payam *</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-map-marker-alt input-icon"></i>
+                            <select id="location" name="location" required>
+                                <option value="">Select Your Payam</option>
+                                <option value="guit">Guit Payam</option>
+                                <option value="nimne">Nimne Payam</option>
+                                <option value="wangkai">Wangkai Payam</option>
+                                <option value="nhialdiu">Nhialdiu Payam</option>
+                            </select>
+                        </div>
+                        <span class="error-message">Please select your location</span>
+                    </div>
+
+                    <!-- Security -->
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="password" name="password" placeholder="Minimum 8 characters"
+                                required>
+                            <button type="button" class="password-toggle"
+                                onclick="togglePassword('password', 'toggleIcon1')">
+                                <i class="fas fa-eye" id="toggleIcon1"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength" id="passwordStrength">
+                            <div class="strength-bar" id="strengthBar"></div>
+                        </div>
+                        <span class="strength-text" id="strengthText"></span>
+                        <span class="error-message">Password must be at least 8 characters</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password *</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="confirm-password" name="confirm-password"
+                                placeholder="Re-enter your password" required>
+                            <button type="button" class="password-toggle"
+                                onclick="togglePassword('confirm-password', 'toggleIcon2')">
+                                <i class="fas fa-eye" id="toggleIcon2"></i>
+                            </button>
+                            <i class="fas fa-check validation-icon success-icon"></i>
+                            <i class="fas fa-times validation-icon error-icon"></i>
+                        </div>
+                        <span class="error-message">Passwords do not match</span>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="terms-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms" class="terms-text">
+                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+                            I understand my data will be used to provide county services.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-register" id="registerBtn">
+                        <span id="btnText">Create Account</span>
+                    </button>
+
+                    <div id="register-message" class="register-message"></div>
+
+                    <div class="divider">
+                        <span>OR</span>
+                    </div>
+
+                    <p class="login-link">
+                        Already have an account? <a href="login.html">Sign in here</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Access Control: Redirect if not coming from admin or no session
+        (function () {
+            const isAdmin =
+                sessionStorage.getItem('adminSession') ||
+                localStorage.getItem('adminSession') ||
+                localStorage.getItem('guitAdminSession');
+
+            const fromAdmin = sessionStorage.getItem('redirectedFromAdmin');
+
+            if (!isAdmin && !fromAdmin) {
+                alert('Access Restricted: Registration is only available through the Admin Panel.');
+                window.location.href = 'login.html';
+            } else {
+                if (fromAdmin) sessionStorage.removeItem('redirectedFromAdmin');
+            }
+        })();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out'
+        });
+
+        // Preloader
+        window.addEventListener('load', function () {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 300);
+                }, 500);
+            }
+        });
+
+        // Toggle Password Visibility
+        function togglePassword(fieldId, iconId) {
+            const passwordInput = document.getElementById(fieldId);
+            const toggleIcon = document.getElementById(iconId);
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+
+        // Password Strength Checker
+        const passwordInput = document.getElementById('password');
+        const strengthBar = document.getElementById('strengthBar');
+        const strengthText = document.getElementById('strengthText');
+        const passwordStrength = document.getElementById('passwordStrength');
+
+        passwordInput.addEventListener('input', function () {
+            const password = this.value;
+            const strength = calculatePasswordStrength(password);
+
+            if (password.length > 0) {
+                passwordStrength.classList.add('show');
+                strengthBar.className = 'strength-bar ' + strength.level;
+                strengthText.textContent = strength.text;
+                strengthText.className = 'strength-text ' + strength.level;
+            } else {
+                passwordStrength.classList.remove('show');
+            }
+        });
+
+        function calculatePasswordStrength(password) {
+            let strength = 0;
+
+            if (password.length >= 8) strength++;
+            if (password.match(/[a-z]+/)) strength++;
+            if (password.match(/[A-Z]+/)) strength++;
+            if (password.match(/[0-9]+/)) strength++;
+            if (password.match(/[$@#&!]+/)) strength++;
+
+            if (strength <= 2) {
+                return { level: 'weak', text: 'Weak password' };
+            } else if (strength <= 4) {
+                return { level: 'medium', text: 'Medium strength' };
+            } else {
+                return { level: 'strong', text: 'Strong password' };
+            }
+        }
+
+        // Real-time Validation
+        const formInputs = document.querySelectorAll('#register-form input:not([type="checkbox"])');
+
+        formInputs.forEach(input => {
+            input.addEventListener('blur', function () {
+                validateField(this);
+            });
+
+            input.addEventListener('input', function () {
+                if (this.parentElement.parentElement.classList.contains('error')) {
+                    validateField(this);
+                }
+            });
+        });
+
+        function validateField(field) {
+            const formGroup = field.closest('.form-group');
+            const value = field.value.trim();
+
+            // Remove previous states
+            formGroup.classList.remove('error', 'success');
+
+            if (field.hasAttribute('required') && !value) {
+                formGroup.classList.add('error');
+                return false;
+            }
+
+            // Email validation
+            if (field.type === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    formGroup.classList.add('error');
+                    return false;
+                }
+            }
+
+            // Phone validation
+            if (field.id === 'phone') {
+                const phoneRegex = /^[+]?[\d\s-()]+$/;
+                if (!phoneRegex.test(value) || value.length < 10) {
+                    formGroup.classList.add('error');
+                    return false;
+                }
+            }
+
+            // Password validation
+            if (field.id === 'password' && value.length < 8) {
+                formGroup.classList.add('error');
+                return false;
+            }
+
+            // Confirm password validation
+            if (field.id === 'confirm-password') {
+                const password = document.getElementById('password').value;
+                if (value !== password) {
+                    formGroup.classList.add('error');
+                    return false;
+                }
+            }
+
+            formGroup.classList.add('success');
+            return true;
+        }
+
+        // Progress Steps Update
+        const steps = ['firstname', 'email', 'password'];
+        const progressLine = document.getElementById('progressLine');
+
+        formInputs.forEach((input, index) => {
+            input.addEventListener('focus', function () {
+                updateProgressSteps(this.id);
+            });
+        });
+
+        function updateProgressSteps(fieldId) {
+            const fieldGroups = {
+                'firstname': 1,
+                'lastname': 1,
+                'email': 2,
+                'phone': 2,
+                'gender': 2,
+                'location': 2,
+                'password': 3,
+                'confirm-password': 3
+            };
+
+            const stepNumber = fieldGroups[fieldId] || 1;
+
+            // Update active step
+            for (let i = 1; i <= 3; i++) {
+                const step = document.getElementById('step' + i);
+                if (i < stepNumber) {
+                    step.classList.add('completed');
+                    step.classList.remove('active');
+                } else if (i === stepNumber) {
+                    step.classList.add('active');
+                    step.classList.remove('completed');
+                } else {
+                    step.classList.remove('active', 'completed');
+                }
+            }
+
+            // Update progress line
+            const progress = ((stepNumber - 1) / 2) * 100;
+            progressLine.style.width = progress + '%';
+        }
+
+        // Form Submission
+        document.getElementById('register-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Validate all fields
+            let isValid = true;
+            formInputs.forEach(input => {
+                if (!validateField(input)) {
+                    isValid = false;
+                }
+            });
+
+            // Check terms
+            const termsCheckbox = document.getElementById('terms');
+            if (!termsCheckbox.checked) {
+                isValid = false;
+                alert('Please accept the Terms of Service and Privacy Policy');
+                return;
+            }
+
+            if (!isValid) {
+                showMessage('Please fill in all required fields correctly', 'error');
+                return;
+            }
+
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstname').value.trim(),
+                lastName: document.getElementById('lastname').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                gender: document.getElementById('gender').value,
+                location: document.getElementById('location').value,
+                password: document.getElementById('password').value
+            };
+
+            // Show loading
+            const registerBtn = document.getElementById('registerBtn');
+            const btnText = document.getElementById('btnText');
+            registerBtn.classList.add('loading');
+            registerBtn.disabled = true;
+            btnText.textContent = 'Creating account...';
+
+            // Real Registration API Call
+            fetch('/api/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+                .then(async response => {
+                    const text = await response.text();
+                    try {
+                        return JSON.parse(text);
+                    } catch (e) {
+                        console.error('Non-JSON response:', text);
+                        throw new Error('Registration failed: Invalid server response');
+                    }
+                })
+                .then(data => {
+                    if (data.success) {
+                        // Success
+                        showMessage('Account created successfully! Redirecting to login...', 'success');
+
+                        // Optional: Store for local greeting
+                        localStorage.setItem('registeredUser', JSON.stringify({
+                            name: formData.firstName + ' ' + formData.lastName,
+                            email: formData.email
+                        }));
+
+                        setTimeout(() => {
+                            window.location.href = 'login.html';
+                        }, 2000);
+                    } else {
+                        throw new Error(data.message || 'Registration failed');
+                    }
+                })
+                .catch(error => {
+                    showMessage(error.message, 'error');
+                    registerBtn.classList.remove('loading');
+                    registerBtn.disabled = false;
+                    btnText.textContent = 'Create Account';
+                });
+        });
+
+        function showMessage(message, type) {
+            const messageDiv = document.getElementById('register-message');
+            messageDiv.className = 'register-message ' + type + ' show';
+            messageDiv.innerHTML = type === 'success' ?
+                '<i class="fas fa-check-circle"></i> ' + message :
+                '<i class="fas fa-exclamation-circle"></i> ' + message;
+
+            if (type === 'error') {
+                setTimeout(() => {
+                    messageDiv.classList.remove('show');
+                }, 5000);
+            }
+        }
+
+        // Theme support
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Guit County Official Website</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            padding: 120px 0 60px;
+            color: white;
+            text-align: center;
+        }
+
+        .page-content {
+            padding: 80px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .policy-section {
+            margin-bottom: 40px;
+        }
+
+        .policy-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-family: var(--font-secondary);
+        }
+
+        .policy-section p {
+            margin-bottom: 15px;
+            color: var(--gray-700);
+            line-height: 1.8;
+        }
+
+        body.dark-mode .policy-section p {
+            color: var(--text-secondary);
+        }
+
+        body.dark-mode .page-header {
+            background: var(--bg-secondary);
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .back-home:hover {
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/guit-logo.jpg" alt="Guit County Logo" class="logo-img" width="50"
+                    height="50">
+                <span class="logo-text">
+                    <h1>GUIT COUNTY</h1>
+                    <span>Official Website</span>
+                </span>
+            </a>
+            <nav class="top-nav">
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">About</a></li>
+                    <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <a href="../index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            <h1>Terms of Service</h1>
+            <p>Last updated: December 19, 2024</p>
+        </div>
+    </div>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="policy-section">
+                <h2>1. Agreement to Terms</h2>
+                <p>By accessing or using the Guit County website, you agree to be bound by these Terms of Service. If
+                    you do not agree to all of these terms, do not use this website.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>2. Use of Service</h2>
+                <p>The content provided on this website is for general information purposes only. While we strive to
+                    keep the information up to date and correct, we make no representations or warranties of any kind,
+                    express or implied, about the completeness, accuracy, reliability, suitability, or availability with
+                    respect to the website or the information, products, services, or related graphics contained on the
+                    website for any purpose.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>3. User Responsibilities</h2>
+                <p>Users are responsible for maintaining the confidentiality of any login information associated with
+                    any account they use to access our resources. You are responsible for all activities that occur
+                    under your account.</p>
+                <p>You agree not to use the website for any purpose that is unlawful or prohibited by these Terms.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>4. Intellectual Property</h2>
+                <p>The Guit County logo and all original content, features, and functionality are and will remain the
+                    exclusive property of Guit County Government and its licensors. Our trademarks and trade dress may
+                    not be used in connection with any product or service without the prior written consent of Guit
+                    County Government.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>5. Limitation of Liability</h2>
+                <p>In no event shall Guit County Government, nor its directors, employees, partners, agents, suppliers,
+                    or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages,
+                    including without limitation, loss of profits, data, use, goodwill, or other intangible losses,
+                    resulting from your access to or use of or inability to access or use the Service.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>6. Governing Law</h2>
+                <p>These Terms shall be governed and construed in accordance with the laws of South Sudan, without
+                    regard to its conflict of law provisions.</p>
+            </div>
+
+            <div class="policy-section">
+                <h2>7. Changes</h2>
+                <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. What
+                    constitutes a material change will be determined at our sole discretion.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 Guit County Government. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple theme sync
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+</body>
+
+</html>

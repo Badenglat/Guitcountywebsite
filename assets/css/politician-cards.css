@@ -1,0 +1,234 @@
+/* ===================================
+   POLITICIAN CARDS STYLING
+   =================================== */
+.politicians-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.politician-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+}
+
+.dark-mode .politician-card {
+    background: var(--bg-secondary);
+}
+
+.politician-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.politician-photo-wrapper {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.politician-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.politician-card:hover .politician-photo {
+    transform: scale(1.05);
+}
+
+.politician-photo-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 5rem;
+}
+
+.politician-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.politician-name {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.dark-mode .politician-name {
+    color: var(--text-primary);
+}
+
+.politician-position {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dark-mode .politician-position {
+    color: var(--secondary-color);
+}
+
+.politician-party {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dark-mode .politician-party {
+    color: var(--text-secondary);
+}
+
+.politician-party i {
+    color: var(--secondary-color);
+}
+
+.politician-bio {
+    background: var(--gray-50);
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.dark-mode .politician-bio {
+    background: var(--bg-tertiary);
+}
+
+.politician-bio h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dark-mode .politician-bio h4 {
+    color: var(--text-primary);
+}
+
+.politician-bio h4 i {
+    color: var(--primary-color);
+}
+
+.dark-mode .politician-bio h4 i {
+    color: var(--secondary-color);
+}
+
+.politician-bio p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--gray-700);
+    text-align: justify;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.dark-mode .politician-bio p {
+    color: var(--text-secondary);
+}
+
+.politician-contact {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+}
+
+.dark-mode .politician-contact {
+    background: var(--secondary-color);
+    color: var(--gray-900);
+}
+
+.politician-contact:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-md);
+}
+
+.politician-contact i {
+    font-size: 1rem;
+}
+
+.politician-contact a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.politician-contact a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .politicians-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .politician-photo-wrapper {
+        height: 250px;
+    }
+
+    .politician-info {
+        padding: 1.25rem;
+    }
+
+    .politician-name {
+        font-size: 1.3rem;
+    }
+
+    .politician-bio {
+        padding: 1rem;
+    }
+
+    .politician-bio p {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .politician-photo-wrapper {
+        height: 200px;
+    }
+
+    .politician-info {
+        padding: 1rem;
+    }
+
+    .politician-name {
+        font-size: 1.2rem;
+    }
+}
+
+/* ===================================
+   END OF POLITICIAN CARDS STYLING
+   =================================== */

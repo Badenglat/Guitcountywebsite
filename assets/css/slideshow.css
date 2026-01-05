@@ -1,0 +1,825 @@
+/* ===================================
+   HERO SLIDESHOW - COMPLETE & OPTIMIZED
+   Continuous Auto-Play Image Slideshow
+   Version: 3.0 - Error-Free
+   =================================== */
+
+/* ===================================
+   SLIDESHOW CONTAINER
+   =================================== */
+.hero-slideshow {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    background: #000000;
+}
+
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* ===================================
+   HERO SLIDES
+   =================================== */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out;
+    z-index: 1;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+/* Fade Slide Animation */
+.hero-slide.fade-slide {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    will-change: opacity;
+}
+
+.hero-slide.fade-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+/* ===================================
+   SLIDE IMAGES
+   =================================== */
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    /* Image rendering optimization */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* Disable inherited animations */
+    animation: none !important;
+    transition: none !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
+/* ===================================
+   OVERLAY GRADIENT
+   =================================== */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.3) 50%,
+            rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Alternative overlay styles */
+.hero-overlay.gradient-bottom {
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.7) 100%);
+}
+
+.hero-overlay.gradient-radial {
+    background: radial-gradient(circle at center,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.6) 100%);
+}
+
+/* ===================================
+   SLIDESHOW INDICATORS (DOTS)
+   =================================== */
+.slideshow-indicators {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+    .slideshow-indicators {
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    padding: 0;
+    outline: none;
+    position: relative;
+}
+
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: scale(1.2);
+}
+
+.indicator:focus {
+    outline: 2px solid var(--secondary-color, #f5c518);
+    outline-offset: 3px;
+}
+
+.indicator.active {
+    background: var(--secondary-color, #f5c518);
+    border-color: var(--secondary-color, #f5c518);
+    width: 32px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(245, 197, 24, 0.6);
+}
+
+/* Indicator Progress Animation */
+.indicator.active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: inherit;
+    border: 2px solid var(--secondary-color, #f5c518);
+    opacity: 0;
+    animation: indicatorPulse 2s ease-in-out infinite;
+}
+
+@keyframes indicatorPulse {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.3);
+    }
+}
+
+/* ===================================
+   NAVIGATION ARROWS
+   =================================== */
+.hero-prev,
+.hero-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+
+    .hero-prev,
+    .hero-next {
+        background: rgba(255, 255, 255, 0.25);
+    }
+}
+
+.hero-prev {
+    left: 30px;
+}
+
+.hero-next {
+    right: 30px;
+}
+
+.hero-prev:hover,
+.hero-next:hover {
+    background: var(--secondary-color, #f5c518);
+    border-color: var(--secondary-color, #f5c518);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 25px rgba(245, 197, 24, 0.5);
+    opacity: 1;
+    color: #1a1a1a;
+}
+
+.hero-prev:focus,
+.hero-next:focus {
+    outline: 2px solid var(--secondary-color, #f5c518);
+    outline-offset: 3px;
+    opacity: 1;
+}
+
+.hero-prev:active,
+.hero-next:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* ===================================
+   SCROLL INDICATOR
+   =================================== */
+.scroll-indicator {
+    position: absolute;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: bounce 2s ease-in-out infinite;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+.scroll-indicator i {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.scroll-indicator span {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-15px);
+    }
+}
+
+/* ===================================
+   PROGRESS BAR
+   =================================== */
+.slideshow-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: var(--secondary-color, #f5c518);
+    z-index: 50;
+    width: 0%;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px rgba(245, 197, 24, 0.6);
+}
+
+.slideshow-progress.animating {
+    animation: progress 5s linear;
+}
+
+@keyframes progress {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* ===================================
+   KEN BURNS EFFECT (OPTIONAL)
+   =================================== */
+.hero-slide.ken-burns img {
+    animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurns {
+    0% {
+        transform: scale(1) translateZ(0);
+    }
+
+    100% {
+        transform: scale(1.15) translateZ(0);
+    }
+}
+
+/* ===================================
+   SLIDESHOW CONTROLS
+   =================================== */
+.slideshow-controls {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    background: var(--secondary-color, #f5c518);
+    color: #1a1a1a;
+    transform: scale(1.1);
+}
+
+/* Pause/Play Toggle */
+.control-btn.paused i::before {
+    content: '\f04b';
+    /* Play icon */
+}
+
+.control-btn.playing i::before {
+    content: '\f04c';
+    /* Pause icon */
+}
+
+/* ===================================
+   SLIDE CAPTIONS (OPTIONAL)
+   =================================== */
+.slide-caption {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 800px;
+    text-align: center;
+    color: #ffffff;
+    z-index: 10;
+    padding: 0 2rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.5s forwards;
+}
+
+.slide-caption h2 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.slide-caption p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    opacity: 0.95;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Large Desktops */
+@media (min-width: 1920px) {
+    .hero-slideshow {
+        min-height: 800px;
+    }
+}
+
+/* Laptops and Small Desktops */
+@media (max-width: 1440px) {
+    .hero-slideshow {
+        min-height: 550px;
+    }
+}
+
+/* Tablets and Large Phones */
+@media (max-width: 1024px) {
+    .hero-slideshow {
+        min-height: 500px;
+    }
+
+    .hero-prev,
+    .hero-next {
+        width: 48px;
+        height: 48px;
+        font-size: 1.25rem;
+    }
+
+    .hero-prev {
+        left: 20px;
+    }
+
+    .hero-next {
+        right: 20px;
+    }
+
+    .slideshow-indicators {
+        bottom: 70px;
+        gap: 10px;
+        padding: 12px 16px;
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+
+    .indicator.active {
+        width: 28px;
+    }
+
+    .scroll-indicator {
+        bottom: 110px;
+    }
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .hero-slideshow {
+        min-height: 500px;
+        height: 100svh;
+        /* Use small viewport height on mobile */
+    }
+
+    .slideshow-indicators {
+        bottom: 80px;
+        gap: 8px;
+        padding: 10px 14px;
+    }
+
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+
+    .indicator.active {
+        width: 24px;
+    }
+
+    /* Hide arrows on mobile - touch gestures instead */
+    .hero-prev,
+    .hero-next {
+        display: none;
+    }
+
+    .scroll-indicator {
+        bottom: 100px;
+        font-size: 0.8rem;
+    }
+
+    .scroll-indicator i {
+        font-size: 1.25rem;
+    }
+
+    .slideshow-controls {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .control-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.875rem;
+    }
+
+    .slide-caption {
+        bottom: 120px;
+        padding: 0 1rem;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .hero-slideshow {
+        min-height: 450px;
+    }
+
+    .slideshow-indicators {
+        bottom: 70px;
+        gap: 6px;
+        padding: 8px 12px;
+    }
+
+    .indicator {
+        width: 7px;
+        height: 7px;
+    }
+
+    .indicator.active {
+        width: 20px;
+    }
+
+    .scroll-indicator {
+        bottom: 90px;
+    }
+
+    .slide-caption {
+        bottom: 100px;
+    }
+}
+
+/* Very Small Devices */
+@media (max-width: 360px) {
+    .hero-slideshow {
+        min-height: 400px;
+    }
+
+    .slideshow-indicators {
+        gap: 5px;
+        padding: 6px 10px;
+    }
+
+    .indicator {
+        width: 6px;
+        height: 6px;
+    }
+
+    .indicator.active {
+        width: 18px;
+    }
+}
+
+/* Landscape Orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-slideshow {
+        min-height: 100vh;
+    }
+
+    .slideshow-indicators {
+        bottom: 40px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .slide-caption {
+        bottom: 70px;
+    }
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-slide,
+    .hero-slide.fade-slide {
+        transition: opacity 0.01ms ease-in-out, visibility 0.01ms ease-in-out;
+    }
+
+    .slideshow-indicators .indicator {
+        transition: none;
+    }
+
+    .scroll-indicator {
+        animation: none;
+    }
+
+    .hero-slide.ken-burns img {
+        animation: none;
+    }
+
+    .slideshow-progress {
+        animation: none;
+    }
+
+    .indicator.active::before {
+        animation: none;
+    }
+
+    .slide-caption {
+        animation: none;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .slideshow-indicators {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .indicator {
+        border-width: 3px;
+        border-color: #ffffff;
+    }
+
+    .indicator.active {
+        background: #ffffff;
+        border-color: #ffffff;
+    }
+
+    .hero-prev,
+    .hero-next {
+        background: rgba(0, 0, 0, 0.8);
+        border: 3px solid #ffffff;
+    }
+
+    .hero-overlay {
+        background: rgba(0, 0, 0, 0.7);
+    }
+}
+
+/* Focus Visible */
+.indicator:focus-visible,
+.hero-prev:focus-visible,
+.hero-next:focus-visible,
+.control-btn:focus-visible {
+    outline: 3px solid var(--secondary-color, #f5c518);
+    outline-offset: 4px;
+}
+
+/* ===================================
+   DARK MODE ADJUSTMENTS
+   =================================== */
+[data-theme="dark"] .slideshow-indicators,
+.dark-mode .slideshow-indicators {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+[data-theme="dark"] .hero-prev,
+[data-theme="dark"] .hero-next,
+.dark-mode .hero-prev,
+.dark-mode .hero-next {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(245, 197, 24, 0.3);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+[data-theme="dark"] .hero-prev:hover,
+[data-theme="dark"] .hero-next:hover,
+.dark-mode .hero-prev:hover,
+.dark-mode .hero-next:hover {
+    background: var(--secondary-color, #fbbf24);
+    border-color: var(--secondary-color, #fbbf24);
+}
+
+[data-theme="dark"] .control-btn,
+.dark-mode .control-btn {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(245, 197, 24, 0.3);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+[data-theme="dark"] .control-btn:hover,
+.dark-mode .control-btn:hover {
+    background: var(--secondary-color, #fbbf24);
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+@media print {
+    .hero-slideshow {
+        position: relative;
+        height: auto;
+        min-height: auto;
+        page-break-after: always;
+    }
+
+    .hero-slide {
+        position: relative;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        display: none !important;
+    }
+
+    .hero-slide:first-child {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+
+    .slideshow-indicators,
+    .hero-prev,
+    .hero-next,
+    .scroll-indicator,
+    .slideshow-controls,
+    .slideshow-progress {
+        display: none !important;
+    }
+
+    .hero-overlay {
+        opacity: 0.3;
+    }
+}
+
+/* ===================================
+   LOADING STATE
+   =================================== */
+.slideshow-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.slideshow-loading::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--secondary-color, #f5c518);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hero-slideshow.loaded .slideshow-loading {
+    display: none;
+}
+
+/* ===================================
+   TOUCH GESTURE SUPPORT
+   =================================== */
+.hero-slideshow.touch-enabled {
+    touch-action: pan-y pinch-zoom;
+}
+
+.hero-slideshow.swiping {
+    cursor: grabbing;
+}
+
+/* ===================================
+   END OF SLIDESHOW STYLES
+   =================================== */

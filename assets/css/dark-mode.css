@@ -1,0 +1,297 @@
+/* ===================================
+   DARK MODE TEXT VISIBILITY FIX
+   Ensures all text is visible in dark mode
+   =================================== */
+
+[data-theme="dark"],
+.dark-mode {
+    /* Override all black/dark text to white/light */
+    color: var(--text-primary);
+}
+
+/* Headings */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+    color: var(--text-primary) !important;
+}
+
+/* Paragraphs and body text */
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] div,
+[data-theme="dark"] li,
+[data-theme="dark"] td,
+[data-theme="dark"] th,
+.dark-mode p,
+.dark-mode span,
+.dark-mode div,
+.dark-mode li,
+.dark-mode td,
+.dark-mode th {
+    color: var(--text-secondary);
+}
+
+/* Strong emphasis */
+[data-theme="dark"] strong,
+[data-theme="dark"] b,
+.dark-mode strong,
+.dark-mode b {
+    color: var(--text-primary);
+}
+
+/* Links */
+[data-theme="dark"] a,
+.dark-mode a {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] a:hover,
+.dark-mode a:hover {
+    color: var(--primary-light);
+}
+
+/* Labels and form text */
+[data-theme="dark"] label,
+[data-theme="dark"] .form-label,
+.dark-mode label,
+.dark-mode .form-label {
+    color: var(--text-primary);
+}
+
+/* Input placeholders */
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder,
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: var(--text-tertiary);
+}
+
+/* Section titles and headers */
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .page-title,
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .hero-title,
+.dark-mode .section-title,
+.dark-mode .page-title,
+.dark-mode .card-title,
+.dark-mode .hero-title {
+    color: var(--text-primary) !important;
+}
+
+/* Subtitles and descriptions */
+[data-theme="dark"] .section-subtitle,
+[data-theme="dark"] .description,
+[data-theme="dark"] .card-text,
+[data-theme="dark"] .hero-subtitle,
+.dark-mode .section-subtitle,
+.dark-mode .description,
+.dark-mode .card-text,
+.dark-mode .hero-subtitle {
+    color: var(--text-secondary) !important;
+}
+
+/* Navigation text */
+[data-theme="dark"] .nav-link,
+[data-theme="dark"] .sidebar-link,
+[data-theme="dark"] .menu-item,
+.dark-mode .nav-link,
+.dark-mode .sidebar-link,
+.dark-mode .menu-item {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .sidebar-link:hover,
+.dark-mode .nav-link:hover,
+.dark-mode .sidebar-link:hover {
+    color: var(--text-primary);
+}
+
+/* Buttons text */
+[data-theme="dark"] .btn,
+.dark-mode .btn {
+    color: var(--white);
+}
+
+[data-theme="dark"] .btn-outline,
+.dark-mode .btn-outline {
+    color: var(--text-primary);
+}
+
+/* Card content */
+[data-theme="dark"] .card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .news-card,
+.dark-mode .card,
+.dark-mode .feature-card,
+.dark-mode .news-card {
+    color: var(--text-secondary);
+}
+
+/* Table text */
+[data-theme="dark"] table,
+.dark-mode table {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] thead,
+[data-theme="dark"] th,
+.dark-mode thead,
+.dark-mode th {
+    color: var(--text-primary);
+}
+
+/* List items */
+[data-theme="dark"] ul,
+[data-theme="dark"] ol,
+.dark-mode ul,
+.dark-mode ol {
+    color: var(--text-secondary);
+}
+
+/* Badges and tags */
+[data-theme="dark"] .badge,
+[data-theme="dark"] .tag,
+[data-theme="dark"] .label,
+.dark-mode .badge,
+.dark-mode .tag,
+.dark-mode .label {
+    color: var(--white);
+}
+
+/* Muted text */
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .muted,
+[data-theme="dark"] small,
+.dark-mode .text-muted,
+.dark-mode .muted,
+.dark-mode small {
+    color: var(--text-tertiary);
+}
+
+/* Footer text */
+[data-theme="dark"] .footer,
+[data-theme="dark"] .footer p,
+[data-theme="dark"] .footer a,
+.dark-mode .footer,
+.dark-mode .footer p,
+.dark-mode .footer a {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .footer h3,
+[data-theme="dark"] .footer h4,
+.dark-mode .footer h3,
+.dark-mode .footer h4 {
+    color: var(--text-primary);
+}
+
+/* Breadcrumbs */
+[data-theme="dark"] .breadcrumb,
+.dark-mode .breadcrumb {
+    color: var(--text-secondary);
+}
+
+/* Alert text */
+[data-theme="dark"] .alert,
+.dark-mode .alert {
+    color: var(--text-primary);
+}
+
+/* Code and pre */
+[data-theme="dark"] code,
+[data-theme="dark"] pre,
+.dark-mode code,
+.dark-mode pre {
+    color: var(--accent-cyan);
+    background: var(--bg-elevated);
+}
+
+/* Blockquote */
+[data-theme="dark"] blockquote,
+.dark-mode blockquote {
+    color: var(--text-secondary);
+    border-left-color: var(--primary-color);
+}
+
+/* Stats and numbers */
+[data-theme="dark"] .stat-number,
+[data-theme="dark"] .number,
+[data-theme="dark"] .count,
+.dark-mode .stat-number,
+.dark-mode .number,
+.dark-mode .count {
+    color: var(--text-primary);
+}
+
+/* Feature descriptions */
+[data-theme="dark"] .feature-description,
+[data-theme="dark"] .feature-title,
+.dark-mode .feature-description,
+.dark-mode .feature-title {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .feature-title,
+.dark-mode .feature-title {
+    color: var(--text-primary);
+}
+
+/* News and blog content */
+[data-theme="dark"] .news-title,
+[data-theme="dark"] .blog-title,
+[data-theme="dark"] .post-title,
+.dark-mode .news-title,
+.dark-mode .blog-title,
+.dark-mode .post-title {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .news-excerpt,
+[data-theme="dark"] .blog-excerpt,
+.dark-mode .news-excerpt,
+.dark-mode .blog-excerpt {
+    color: var(--text-secondary);
+}
+
+/* Meta information */
+[data-theme="dark"] .meta,
+[data-theme="dark"] .date,
+[data-theme="dark"] .author,
+.dark-mode .meta,
+.dark-mode .date,
+.dark-mode .author {
+    color: var(--text-tertiary);
+}
+
+/* Ensure icons inherit text color */
+[data-theme="dark"] i,
+[data-theme="dark"] .icon,
+.dark-mode i,
+.dark-mode .icon {
+    color: inherit;
+}
+
+/* Override any remaining black text */
+[data-theme="dark"] *,
+.dark-mode * {
+    border-color: var(--border-color);
+}
+
+/* Text shadows for dark mode */
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .page-title,
+.dark-mode .hero-title,
+.dark-mode .page-title {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
